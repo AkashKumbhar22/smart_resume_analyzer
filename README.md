@@ -1,4 +1,5 @@
 #Smart Resume Analyzer
+
 📌 Overview
 
 Smart Resume Analyzer is an AI-powered application that analyzes resumes and provides intelligent insights to help candidates improve their job readiness. It extracts key information from resumes, evaluates skills and experience, and matches them against job descriptions using Natural Language Processing (NLP) and Machine Learning techniques.
