@@ -1,4 +1,4 @@
-#Smart Resume Analyzer
+**#Smart Resume Analyzer**
 
 **📌Overview**
 
