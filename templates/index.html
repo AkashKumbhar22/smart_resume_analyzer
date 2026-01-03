@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Resume Analyzer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Smart Resume Analyzer & Job Matcher</h1>
+    <p class="subtitle">AI-powered resume screening using NLP</p>
+
+    <form method="POST" enctype="multipart/form-data" class="card">
+        <label>📄 Upload Resume (PDF / DOCX)</label>
+        <input type="file" name="resume" required>
+
+        <label>📝 Job Description</label>
+        <textarea name="job_description" rows="6" placeholder="Paste job description here..." required></textarea>
+
+        <button type="submit">Analyze Resume</button>
+    </form>
+
+    {% if score is not none %}
+    <div class="card result-card">
+
+        <h2>Match Score</h2>
+        <div class="progress">
+            <div class="progress-bar" style="width: {{ score }}%;">{{ score }}%</div>
+        </div>
+
+        <div class="skills-section">
+            <div>
+                <h3>✅ Resume Skills</h3>
+                {% for skill in resume_skills %}
+                    <span class="skill success">{{ skill }}</span>
+                {% endfor %}
+            </div>
+
+            <div>
+                <h3>📌 Job Required Skills</h3>
+                {% for skill in job_skills %}
+                    <span class="skill info">{{ skill }}</span>
+                {% endfor %}
+            </div>
+
+            <div>
+                <h3>❌ Missing Skills</h3>
+                {% if missing_skills %}
+                    {% for skill in missing_skills %}
+                        <span class="skill danger">{{ skill }}</span>
+                    {% endfor %}
+                {% else %}
+                    <p class="good">No missing skills 🎉</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="suggestion">
+            <h3>💡 Resume Improvement Tips</h3>
+            {% if missing_skills %}
+                <p>Add these missing skills to improve your resume relevance.</p>
+            {% else %}
+                <p>Your resume aligns well with this job description.</p>
+            {% endif %}
+        </div>
+
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
