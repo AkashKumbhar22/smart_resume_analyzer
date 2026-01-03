@@ -1,6 +1,7 @@
 flask
-spacy
-nltk
+pandas
+numpy
 scikit-learn
+spacy
 PyPDF2
-python-docx
+gunicorn
